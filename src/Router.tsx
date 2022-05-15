@@ -5,6 +5,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import SideMaster from "./pages/SideMaster";
 import LifeCycle from "./pages/lifeCycle";
+import Hook from "./pages/hook";
 
 export default function Routers() {
   return (
@@ -14,6 +15,7 @@ export default function Routers() {
       <Route path="/index" element={<Index />} />
       <Route path="/sideMaster" element={<SideMaster />} />
       <Route path="/lifeCycle" element={<LifeCycle />} />
+      <Route path="/hook" element={<Hook />} />
 
 
       <Route path="/error" element={<Navigate to="/" />}></Route>
