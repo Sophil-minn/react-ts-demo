@@ -5,6 +5,7 @@ function Index() {
     <ul>
       <li><Link to="/">Home</Link></li>
       <li><Link to="/hoc">hoc</Link></li>
+      <li><Link to="/hook">hook</Link></li>
       <li><Link to="/sideMaster">sideMaster</Link></li>
       <li><Link to="/index">index</Link></li>
       <li><Link to="/lifeCycle">lifeCycle</Link></li>
