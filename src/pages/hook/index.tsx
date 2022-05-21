@@ -11,7 +11,7 @@ function index() {
   return (
     <div>
       Hook state effect Example
-      {/* <Example />
+      <Example />
 
       <h4>ThemeContextDemo</h4>
       <ThemeContextDemo />
@@ -22,7 +22,7 @@ function index() {
       <h4>MeasureExample</h4>
       <MeasureExample />
       <h4>MeasureExample2</h4>
-      <MeasureExample2 /> */}
+      <MeasureExample2 />
       <StateTest />
     </div>
   )
