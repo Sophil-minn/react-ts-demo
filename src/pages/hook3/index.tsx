@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
 function ExpensiveTree(props: { onSubmit: any; }) {
   const { onSubmit } = props;
@@ -47,6 +47,51 @@ function Comment() {
   );
 }
 
+function Child({ callback }: { callback: any }) {
+  const [count, setCount] = useState(() => callback());
+  useEffect(() => {
+    console.log(123);
+    setCount(callback());
+  }, [callback]);
+  return <div>
+    {count}
+  </div>
+}
+
+function Parent() {
+  const [count, setCount] = useState(0)
+  const [price, setPrice] = useState(1)
+  const handleCountAdd = () => setCount(count + 1)
+  const handlePriceAdd = () => setPrice(price + 1)
+  // 使用useMemo在count和price改变时自动计算总价
+  const all = useMemo(() => count * price, [count, price])
+  const callback = () => {
+    // useCallback是缓存的函数，父组件给子组件传递参数为普通函数时，
+    // 父组件每次更新子组件都会更新，但是大部分情况子组件更新是没必要的，
+    // 这时候我们用useCallback来定义函数，并把这个函数传递给子组件，子组件就会根据依赖项再更新了
+    console.log('callback 函数没有被useCallback包裹 ', count);
+    return count;
+  }
+  const callback2 = useCallback(() => {
+    // useCallback是缓存的函数，父组件给子组件传递参数为普通函数时，
+    // 父组件每次更新子组件都会更新，但是大部分情况子组件更新是没必要的，
+    // 这时候我们用useCallback来定义函数，并把这个函数传递给子组件，子组件就会根据依赖项再更新了
+    console.log('callback 使用useCallback', count);
+    return count;
+  }, [count]);
+  return (
+    <div>
+      parent, {count}
+      <button onClick={handleCountAdd}>增加数量</button>
+      <button onClick={handlePriceAdd}>增加价格</button>
+      <p>count: {count}, price: {price} all: {all}</p>
+      <h3>callback</h3>
+      <Child callback={callback} />
+      <Child callback={callback2} />
+    </div>
+  )
+}
+
 function index() {
   return (
     <div>
@@ -55,6 +100,8 @@ function index() {
       <Form />
       Comment
       <Comment />
+      Parent
+      <Parent />
     </div>
   )
 }

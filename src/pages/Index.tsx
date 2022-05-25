@@ -11,6 +11,7 @@ function Index() {
       <li><Link to="/sideMaster">sideMaster</Link></li>
       <li><Link to="/index">index</Link></li>
       <li><Link to="/lifeCycle">lifeCycle</Link></li>
+      <li><Link to="/statePattern">statePattern</Link></li>
     </ul>
   )
 }

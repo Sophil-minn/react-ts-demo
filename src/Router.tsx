@@ -8,6 +8,7 @@ import LifeCycle from "./pages/lifeCycle";
 import Hook from "./pages/hook";
 import Hook2 from "./pages/hook2";
 import Hook3 from "./pages/hook3";
+import StatePattern from "./pages/statePattern";
 
 export default function Routers() {
   return (
@@ -20,6 +21,7 @@ export default function Routers() {
       <Route path="/hook" element={<Hook />} />
       <Route path="/hook2" element={<Hook2 />} />
       <Route path="/hook3" element={<Hook3 />} />
+      <Route path="/statePattern" element={<StatePattern />} />
 
 
       <Route path="/error" element={<Navigate to="/" />}></Route>
