@@ -14,25 +14,31 @@ const formItemLayout = {
 
 interface Props {
   formValue: { country: string, city: string, testInput: string; },
-  field: any;
   countries: Items[];
   cities: any;
+  onChange: Function;
 }
 
 function FormSearch(props: Props, ref: any) {
   const formRef = useRef(null);
+  const field = Field.useField({
+    onChange(key, value) {
+      props.onChange(key, value);
+
+    }
+  });
+  const { init, reset, getError } = field;
   useImperativeHandle(ref, () => ({
     getData: () => {
-      console.log(1213);
-      console.log(formRef.current, 'formRefformRef');
-      field.getValues();
+      // console.log(1213);
+      // console.log(formRef.current, 'formRefformRef');
+      // return 111;
+      return field.getValues();
     }
   }));
-  const { field, formValue, countries, cities } = props;
-  const { init } = field;
+  const { formValue, countries, cities } = props;
   const { country, city, testInput } = formValue;
   const cityList = cities[country];
-  console.log(ref, 'ref');
   return (
     <FusionForm>
       <Form {...formItemLayout} field={field} ref={formRef}>

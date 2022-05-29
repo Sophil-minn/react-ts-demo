@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useCallback, useRef, useState } from 'react'
 import { Form, Input, Select, Grid, Field } from '@alifd/next';
 import { FusionForm } from '../../styleDiv/fusion'
 import FormSearch from './FormSearch';
@@ -19,21 +19,13 @@ interface ValueProps {
 }
 
 function Index() {
-  const formRef = useRef(null);
+  const formRef = useRef<any>();
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [value, setValue] = useState<any>({
     city: '杭州', country: '英国'
   });
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const field = Field.useField({
-    onChange(key, value) {
-      if (key === 'country') {
-        setValue({ [key]: value });
-      }
-      setValue((pre: any) => ({ ...pre, [key]: value }));
-    }
-  });
-  const { init, reset, getError } = field;
+
 
   const countries: Items[] = [
     { value: 'China', label: '中国' },
@@ -70,16 +62,28 @@ function Index() {
     ],
   };
 
+  const onChange = useCallback(
+    (key: string, value: any) => {
+      const values = formRef.current?.getData();
+      // console.log(formRef.current, ' formRef.current');
+      console.log(values, 'values');
+      if (key === 'country') {
+        setValue({ [key]: value });
+      } else {
+        setValue(values);
+      }
 
+      // setValue((pre: any) => ({ ...pre, [key]: value }));
+    }, [])
 
   return (
     <div>
       <FormSearch
         ref={formRef}
         formValue={value}
-        field={field}
         countries={countries}
         cities={cities}
+        onChange={onChange}
       />
 
     </div>
