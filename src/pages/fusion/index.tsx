@@ -66,6 +66,7 @@ function Index() {
     (key: string, value: any) => {
       const values = formRef.current?.getData();
       // console.log(formRef.current, ' formRef.current');
+      //  此处拿到的永远都是历史数据   期望是拿到最新的数据
       console.log(values, 'values');
       if (key === 'country') {
         setValue({ [key]: value });
