@@ -1,6 +1,10 @@
+import CommentList from "./CommentList"
+
 function Hoc() {
   return (
-    <div>hoc</div>
+    <div>
+      <CommentList />
+    </div>
   )
 }
 
