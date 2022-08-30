@@ -1,29 +1,29 @@
 import React from "react";
 
 const DataSource = {
-  getBlogPost: () => {
-    return " 我的博客";
+  getBlogPost: (id: string) => {
+    return `${id} 我的博客`;
   },
   addChangeListener: (callback: () => any) => {
-    callback&&callback();
+    callback && callback();
   },
   removeChangeListener: (callback: () => any) => {
-    callback&&callback();
+    callback && callback();
   }
 }
 
-const Comment = (props: { comment: any[]; }) => {
-  const { comment } = props;
-  return <div>{comment}</div>
+const TextBlock = (props: { text?: string }) => {
+  const { text } = props;
+  return <div>{text}</div>
 }
 
-class BlogPost extends React.Component <{id: string}, {comments: any}>{
+class BlogPost extends React.Component < any, {blogPost?: string, comments?: string[]}>{
   constructor(props: any ) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.state = {
       // 假设 "DataSource" 是个全局范围内的数据源变量
-      blogPost: DataSource.getBlogPost(props.id)
+      blogPost: DataSource.getBlogPost(props.id),
     };
   }
 
@@ -40,17 +40,13 @@ class BlogPost extends React.Component <{id: string}, {comments: any}>{
   handleChange() {
     // 当数据源更新时，更新组件状态
     this.setState({
-      comments: DataSource.getComments()
+      blogPost: DataSource.getBlogPost(this.props.id)
     });
   }
 
   render() {
     return (
-      <div>
-        {this.state.comments.map((comment: any[]) => (
-          <Comment comment={comment} />
-        ))}
-      </div>
+      <TextBlock text={this.state.blogPost} />
     );
   }
 }
