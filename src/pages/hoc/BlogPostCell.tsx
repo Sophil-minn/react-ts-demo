@@ -22,6 +22,23 @@ function HOC(Component: any) {
 }
 
 
+class Index2 extends React.Component{
+  static say: () => void
+  render(){
+    return <div> hello,world  </div>
+  }
+}
+Index2.say = function(){
+  console.log('say2------: my name is alien')
+}
+function HOC2(Component: any) {
+  return class wrapComponent extends Component{
+  }
+}
+const newIndex2=  HOC2(Index2) 
+console.log(newIndex2.say, 11111)
+
+
 export default function BlogPostCell(props: { data: string}) {
     const { data } = props;
     const newIndex =  HOC(Index) 
