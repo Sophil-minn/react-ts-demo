@@ -18,7 +18,7 @@ const DataSource = {
   }
 }
 
-function Hoc() {
+function Index() {
   const CommentListWithSubscription = withSubscription(
     CommentListCell,
     () => DataSource.getComments()
@@ -44,4 +44,4 @@ function Hoc() {
   )
 }
 
-export default Hoc
+export default Index
