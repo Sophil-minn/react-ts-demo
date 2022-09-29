@@ -39,8 +39,8 @@ function Index() {
   const renderCenter = () => {
     return (
       <div className='ant-transfer-operation'>
-        <Button key="l2r" onClick={() => handleMoveItem(RIGHT)}><RightOutlined /></Button>
-        <Button key="r2l" onClick={() => handleMoveItem(LEFT)}><LeftOutlined /></Button>
+        <Button key="l2r" type={leftValue.length? "primary" : "normal" as any} disabled={!leftValue.length} onClick={() => handleMoveItem(RIGHT)}><RightOutlined /></Button>
+        <Button key="r2l" type={rightValue.length? "primary" : "normal" as any} disabled={!rightValue.length} onClick={() => handleMoveItem(LEFT)}><LeftOutlined /></Button>
       </div>
     );
   }
