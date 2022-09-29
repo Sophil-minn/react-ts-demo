@@ -10,6 +10,8 @@ import Hook2 from "./pages/hook2";
 import Hook3 from "./pages/hook3";
 import StatePattern from "./pages/statePattern";
 import Fusion from "./pages/fusion";
+import React18 from "./pages/react18";
+import Transfer from "./pages/transfer";
 
 export default function Routers() {
   return (
@@ -24,6 +26,8 @@ export default function Routers() {
       <Route path="/hook3" element={<Hook3 />} />
       <Route path="/statePattern" element={<StatePattern />} />
       <Route path="/fusion" element={<Fusion />} />
+      <Route path="/react18" element={<React18 />} />
+      <Route path="/transfer" element={<Transfer />} />
 
 
       <Route path="/error" element={<Navigate to="/" />}></Route>

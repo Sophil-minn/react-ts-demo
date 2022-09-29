@@ -5,10 +5,10 @@ import withSubscription from "./withSubscription"
 
 const DataSource = {
   getComments: () => {
-    return [1111, 222];
+    return [3333, 44444];
   },
   getBlogPost: (id: string) => {
-    return `${id} 我的博客`;
+    return `${id} 我的博客 -----`;
   },
   addChangeListener: (callback: () => any) => {
     callback&&callback();
@@ -33,6 +33,12 @@ function Index() {
     (DataSource: any, props: {id: string}) => DataSource.getBlogPost(props.id)
   );
 
+  const worker = new Worker('./worker.js');
+   // 通过onmessage接收消息
+   worker.onmessage = function(e) {
+    console.log(e, e.data, 11111);
+  };
+
   return (
     <div>
       {/* <CommentList />
@@ -40,6 +46,11 @@ function Index() {
       <CommentListWithSubscription />
       {/* <BlogPost2 id={11} /> */}
       <BlogPostWithSubscription id={99} />
+      {/* <input type="text" id="ipt" value="" onChange={value => {
+        // 通过postMessage发送消息
+        worker.postMessage({ number: value });
+      }}/>
+      <div id="result"></div> */}
     </div>
   )
 }

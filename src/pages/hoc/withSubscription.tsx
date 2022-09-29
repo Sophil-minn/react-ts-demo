@@ -42,6 +42,8 @@ export default function withSubscription(WrappedComponent: any, selectData: Func
     }
 
     render() {
+      console.log(this.state.data, 'this.state.data');
+      console.log(this.props, 'this.props.999999999');
       // ... 并使用新数据渲染被包装的组件!
       // 请注意，我们可能还会传递其他属性
       return <WrappedComponent data={this.state.data} {...this.props} />;
