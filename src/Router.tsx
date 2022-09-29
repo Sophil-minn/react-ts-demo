@@ -16,7 +16,7 @@ import Transfer from "./pages/transfer";
 export default function Routers() {
   return (
     <Routes>
-      <Route path="/" element={<Index />} />
+      <Route path="/" element={<Transfer />} />
       <Route path="/hoc" element={<Hoc />} />
       <Route path="/index" element={<Index />} />
       <Route path="/sideMaster" element={<SideMaster />} />
