@@ -4,6 +4,7 @@ import Hoc from "./pages/hoc";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import SideMaster from "./pages/SideMaster";
+import TS from "./pages/typscript";
 
 export default function Routers() {
   {/* 所有的路由配置均在 BrowserRouter 内部 */ }
@@ -11,6 +12,7 @@ export default function Routers() {
   return (
     <Routes>
       <Route path="/" element={<Index />} />
+      <Route path="/typescript" element={<TS />} />
       <Route path="/hoc" element={<Hoc />} />
       <Route path="/index" element={<Index />} />
       <Route path="/sideMaster" element={<SideMaster />} />
