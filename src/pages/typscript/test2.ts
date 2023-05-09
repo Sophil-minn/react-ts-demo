@@ -10,6 +10,7 @@ let viking: Person = {
   id: 1
 }
 
+
 const sum = (x: number, y: number) => {
   return x + y
 }
@@ -18,6 +19,7 @@ interface ISum {
 }
 const sum2: ISum = sum
 
+// 索引类型
 interface RandomMap {
   [propName: string]: string;
 }
