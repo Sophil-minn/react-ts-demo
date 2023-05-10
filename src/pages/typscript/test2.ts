@@ -23,11 +23,11 @@ const sum2: ISum = sum
 interface RandomMap {
   [propName: string]: string;
 }
-const test: RandomMap = {
-  a: 'hello',
-  b: 'test',
-  c: 'test'
-}
+// const test: RandomMap = {
+//   a: 'hello',
+//   b: 'test',
+//   c: 'test'
+// }
 interface LikeArray {
   [index: number]: string
 }
@@ -46,3 +46,4 @@ const a: FunctionWithProps = (x: number) => {
 a.name = 'abc'
 
 
+export {}

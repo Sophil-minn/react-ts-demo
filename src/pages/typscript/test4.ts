@@ -1,12 +1,12 @@
-function echo<T>(arg: T): T {
-  return arg
-}
+// function echo<T>(arg: T): T {
+//   return arg
+// }
 
 function swap<T, U>(tuple: [T, U]): [U, T] {
   return [tuple[1], tuple[0]]
 }
-const result = swap(['string', 123])
-let test = 123
+// const result = swap(['string', 123])
+// let test = 123
 
 interface GithubResp {
   name: string;
@@ -46,9 +46,10 @@ function echoWithArr<T extends IWithLength>(arg: T): T {
 }
 
 const arrs = echoWithArr([1, 2, 3])
-const str = echoWithArr('123')
+// const str = echoWithArr('123')
 const obj = echoWithArr({length: 123, width: 'hello' })
 type NonType<T> = T extends null | undefined ? never : T
 let demo1: NonType<number>
 let demo2: NonType<null>
 
+export {}
