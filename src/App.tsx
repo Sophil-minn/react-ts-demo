@@ -1,5 +1,5 @@
 import { useRoutes } from 'react-router-dom';
-import { routeConfig } from '@/pages/config/routerConfig';
+import { routeConfig } from '@/config/routerConfig';
 
 function App() {
   const element = useRoutes(routeConfig)

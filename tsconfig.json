@@ -26,5 +26,5 @@
   },
   "include": [
     "src"
-, "src/pages/config/routerConfig.tsx"  ]
+, "src/config/routerConfig.tsx"  ]
 }

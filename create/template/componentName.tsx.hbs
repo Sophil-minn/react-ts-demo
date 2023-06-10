@@ -1,0 +1,14 @@
+import React from 'react';
+import classNames from 'classnames';
+
+import './index.scss';
+
+const cls = classNames({
+    'minn-{{dirName}}': true
+  });
+
+const {{componentName}} = () => {
+  return <div className={cls} >{{componentName}}</div>
+}
+
+export default {{componentName}} ;
